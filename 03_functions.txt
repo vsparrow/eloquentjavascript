@@ -1,0 +1,80 @@
+A FUNCTION DEFINITION is a regular binding where the value of the binding is a function.
+A function is created with an expression that starts with the keyword function
+Functions have a set of PARAMETERS
+also a BODY, which contains the statements that are to be executed when the function is called.
+the body is wrapped in BRACES
+Some functions produce a value,  and some don’t, whose only result is a side effect.
+A RETURN STATEMENT determines the value the function returns
+When control comes across such a statement, it immediately jumps out of the current function and gives the returned value to the code that called the function
+A return keyword without an expression after it will cause the function to return undefined
+
+const square = function(x) {
+  return x * x;
+};
+
+//parameters are variables a function accepts
+//arguments are the variables that are sent to a function
+
+Each binding has a SCOPE, which is the part of the program in which the binding is visible.
+//note: The only time I've seen variables refered to as bindings are here in eloquentjs
+GLOBAL bindings are defined outside the scope of a block, and you can refer to them from the whole program
+LOCAL bindings are declared inside a function, and referenced only in that function
+Every time the function is called, new INSTANCES of these bindings are created. This provides some isolation between functions
+
+
+//DIFFERENCES let, var const
+Bindings declared with let and const are in fact local to the block that they are declared in
+if you create one of those inside of a loop, the code before and after the loop cannot “see” it.
+var keyword, are visible throughout the whole function that they appear in
+//example: copy this to chrome console and try it
+if(true){let y = 20; var z = 30;}
+console.log(z) //30   this will print
+console.log(y) //ReferenceError:
+//without being wrapped in braces, the scope is global
+
+
+DEGREES OF LOCALITY: Blocks and functions can be created inside other blocks and functions, producing multiple degrees of locality.
+LEXICAL SCOPING : binding visibility determined by the place of the block within the program
+
+
+//some deep dive right here
+A function binding usually simply acts as a name for a specific piece of the program.
+Such a binding is defined once and never changed.
+This makes it easy to confuse the function and its name. the two are different!
+It is possible to store a function value in a new binding, pass it as an argument to a function, and so on.
+Similarly, a binding that holds a function is still just a regular binding and can, if not constant, be assigned a new value
+//example
+function(){}  //this is a function binding
+let dj = function(){} // this is a binding that holds a function (or you can say holds a function binding? or function definition? a function binding is a function definition)
+//changing the binding that points to the function
+let dj = function(){console.log("playing Tiesto")}
+if(pop){
+  dj = function(){console.log("playing Brittany")}
+}  //see dj changed where
+
+//three ways to declare a function
+function nothing(){/* do nothing*/}       //function declaration
+let nothing = function(){/* do nothing*/} //function binding?
+let nothing = () => {/* do nothing*/}     //arrow function
+
+FUNCTION DECLARATION : When the function keyword is used at the start of a statement
+//example
+function square(x) {return x * x;}
+//why useful //because function declarations can be "hoisted?"
+Function declarations are not part of the regular TOP-TO-BOTTOM FLOW OF CONTROL.
+They are conceptually moved to the top of their scope and can be used by all the code in that scope.
+//example       //see future() used before its defined
+console.log("The future says:", future());
+function future() {return "You'll never have flying cars";}
+
+
+ARROW FUNCTIONS another notation for functions
+It expresses something like “this input (the parameters) produces this result (the body)”.
+//different from other functions because of the following
+When there is only one parameter name, you can omit the parentheses around the parameter list
+If the body is a single expression, rather than a block in braces, that expression will be returned from the function
+//both do the same thing
+const square1 = (x) => { return x * x; }; //block means must use return keyword
+const square2 = x => x * x;   //see no block here. no block means autoreturn
+//WHY arrow functions were added
+Arrow functions were added in 2015, mostly to make it possible to write small function expressions in a less verbose way.
