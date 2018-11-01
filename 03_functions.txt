@@ -78,3 +78,23 @@ const square1 = (x) => { return x * x; }; //block means must use return keyword
 const square2 = x => x * x;   //see no block here. no block means autoreturn
 //WHY arrow functions were added
 Arrow functions were added in 2015, mostly to make it possible to write small function expressions in a less verbose way.
+
+CALL STACK The place where the computer stores this context
+Every time a function is called, the current context is stored on top of this stack.
+When a function returns, it removes the top context from the stack and uses that context to continue execution.
+IN examples, The indentation indicates the depth of the call stack.
+
+ARGUMENTS: pass a function more arguments then it has parameters, it just ignores the arguments
+
+CLOSURE:  a specific instance of a local binding in an enclosing scope
+"A CLOSURE" : A function that references bindings from local scopes around it
+
+Loop vs Recursion: Running through a simple loop is generally cheaper than calling a function multiple times.
+dilemma of speed versus elegance
+Recursion is not always just an inefficient alternative to looping.
+Some problems really are easier to solve with recursion than with loops.
+Most often these are problems that require exploring or processing several “branches”, each of which might branch out again into even more branches.
+
+
+A pure function is a specific kind of value-producing function that not only has no side effects but also doesn’t rely on side effects from other code
+A pure function has the pleasant property that, when called with the same arguments, it always produces the same value (and doesn’t do anything else)
