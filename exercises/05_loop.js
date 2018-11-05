@@ -18,11 +18,11 @@ let loop = (startValue, testF, updateF, bodyF) => {
     startValue = updateF(startValue)
   }
 }
-
+//**************************************************
 let loopUsingFor = (value, test, update, body) => {
   for(let i = value; test(i); i = update(i)) { body(i)}
 }
-
+//**********TESTS****************************************
 loop(3, n => n > 0, n => n - 1, console.log);
 loopUsingFor(3, n => n > 0, n => n - 1, console.log);
 // → 3
