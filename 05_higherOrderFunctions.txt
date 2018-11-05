@@ -1,0 +1,19 @@
+A solution is expressed in a vocabulary that corresponds to the problem being solved.
+In the context of programming, these kinds of vocabularies are usually called ABSTRACTIONS.
+
+HIGHER ORDER FUNCTIONS: Functions that operate on other functions, either by taking them as arguments or by returning them,
+  allow us to abstract over actions, not just values.
+write functions that model computations with “gaps” in them. The code that calls these functions can fill in the gaps by providing function values.
+
+the filter function, rather than deleting elements from an existing array, builds up a new array with only the elements that pass the test. This function is pure.
+  The filter method returns a new array containing only the elements that pass the predicate function.
+The map method transforms an array by applying a function to all of its elements and building a new array from the returned values.
+The parameters to reduce are, apart from the array, a combining function and a start value.
+The some method tests whether any element matches a given predicate function.
+findIndex finds the position of the first element that matches a predicate.
+
+A function has parameters. You pass in arguments to a function.
+
+You can usually afford the readable approach, but if you’re processing huge arrays, and doing so many times, the less abstract style might be worth the extra speed.
+
+COLLECTION (anything that we can loop over with for/of)
