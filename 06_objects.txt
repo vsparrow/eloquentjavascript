@@ -1,0 +1,85 @@
+OBJECT ORIENTED PROGRAMMING, a set of techniques that use objects (and related concepts) as the central principle of program organization.
+The core idea in object-oriented programming is to divide programs into smaller pieces and make each piece responsible for managing its own state.
+knowledge about the way a piece of the program works can be kept local to that piece.
+BENIFIT: Whenever these local details change, only the code directly around it needs to be updated.
+Different pieces of such a program interact with each other through interfaces,
+INTERFACES: limited sets of functions or bindings that provide useful functionality at a more abstract level, hiding their precise implementation.
+//OOP is about abstracting differeent parts of the program, and accessing those parts via interfaces provided by those parts
+PUBLIC Properties/methods that are part of the interface
+PRIVATE Properties/methods which outside code should not be touching
+//JS doesnt truly hide away private Properties and methods
+common to put an underscore (_) character at the start of property names to indicate that those properties are private.
+ENCAPSULATION: seperating interface from implementation
+
+METHODS:  nothing more than properties that hold function values.
+//ex: let rabbit = {}; method is: rabbit.name = ()=>{log("my name is rabbit")}
+methods have a binding called "this" that points to the object it was called on
+think of "this" as an extra parameter that is passed in a different way.
+to pass "this" explicictly use the function's call method.
+
+more THIS:
+function keyword defined functions have their own "this"
+  do not refer to the "this" of their wrapping scope
+arrow functions: dont bind their own "this"
+  they see the "this" binding of the scope around them
+
+PROPTOTYPE: A prototype is another object that is used as a fallback source of properties.
+Functions derive from Function.prototype, and arrays derive from Array.prototype.
+  objects from object.prototype
+use Object.create to create an object with a specific prototype
+Prototypes are useful for defining properties for which all instances of a class share the same value, such as methods.
+Properties that differ per instance, such as our rabbits’ type property, need to be stored directly in the objects themselves.
+
+A CLASS defines the shape of a type of object—what methods and properties it has.
+Such an object is called an INSTANCE of the class.
+CONSTRUCTOR: object that defines the properties that instances of this class are supposed to have.
+ If you put the keyword new in front of a function call, the function is treated as a constructor.
+
+Constructors (all functions, in fact) automatically get a property named prototype,
+  which by default holds a plain, empty object that derives from Object.prototype.
+  You can overwrite it with a new object if you want. Or you can add properties to the existing object
+Naming: By convention, the names of constructors are capitalized so that they can easily be distinguished from other functions.
+The actual prototype of a constructor is Function.prototype since constructors are functions.
+CLASS KEYWORD: you can now wrote constructors with the keyword class in es6
+The class keyword starts a class declaration, which allows us to define a constructor
+  and a set of methods all in a single place.
+  Any number of methods may be written inside the declaration’s braces.
+Class declarations currently allow only methods—properties that hold functions—to be added to the prototype.
+you can create nonfunction value properties by directly manipulating the prototype after you’ve defined the class.
+You are allowed to omit the class name in a class expression. "ANONYMOUS CLASS?"
+
+An objects own property overrides it's proptotypes proprty if they have the same name
+
+MAP, unrelated to array.map, is a data structure that associates values (the keys) with other values. (hash table?)
+If you pass null to Object.create, the resulting object will not derive from Object.prototype and can safely be used as a map
+JavaScript comes with a class called Map that is written for this exact purpose. It stores a mapping and allows any type of keys.
+//ex if you lookup toString in an object, the property would be there. "toString" in myObject
+//let o = {} ; o["toString"]  //get back:  [Function: toString]
+//let o = new Map() //betterl has properties set, get , has
+
+
+POLYMORPHISM:  code can work with values of different shapes, as long as they support the interface it expects.
+When a piece of code is written to work with objects that have a certain interface
+—in this case, a toString method—any kind of object that happens to support this interface can be plugged into the code, and it will just work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.

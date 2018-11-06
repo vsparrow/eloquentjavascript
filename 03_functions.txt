@@ -98,3 +98,6 @@ Most often these are problems that require exploring or processing several “br
 
 A pure function is a specific kind of value-producing function that not only has no side effects but also doesn’t rely on side effects from other code
 A pure function has the pleasant property that, when called with the same arguments, it always produces the same value (and doesn’t do anything else)
+
+
+note: see chapter 6 on "this" proprty of arrow functions vs function defined via function keyword
