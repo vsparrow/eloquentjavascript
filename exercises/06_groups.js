@@ -35,8 +35,8 @@ class Group {
 
   static from(array){
     let group = new Group;
-    for (var i = array[0]; i <= array[1]; i++) {
-      group.add(i)
+    for (var i = 0; i < array.length; i++) {
+      group.add(array[i])
     }
     return group
   }
