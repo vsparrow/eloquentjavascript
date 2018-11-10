@@ -4,7 +4,7 @@
 class Group {
   constructor(){
     this.items = []
-    this.index = 0
+    // this.index = 0
   }
   add(x){
     if(this.items.indexOf(x) == -1){this.items.push(x)}
@@ -20,12 +20,6 @@ class Group {
     return true
   }
 
-  next(){
-    if(this.index > items.length) return {done: true}
-    let value = this.index++;
-    console.log(value);
-    return {value: this.index[value], done: false}
-  }
 
   static from(array){
     let group = new Group;
@@ -35,10 +29,25 @@ class Group {
     return group
   }
 }
+/////////////////////////////////////
+class GroupIterator {
+  constructor(group){
+    this.group = group
+    this.index = 0
+  }
+  next(){
+    if(this.index >= this.group.items.length) return {done: true}
+    let value = this.index++;
+    return {value: this.group.items[value], done: false}
+  }
+}
+////////////////////////////////////
+Group.prototype[Symbol.iterator] = function(){
+  return new GroupIterator(this)
+}
 
 
-// let group = Group.from(["a", "b", "c"])
-// console.log(group);
+
 for (let value of Group.from(["a", "b", "c"])) {
   console.log(value);
 }
