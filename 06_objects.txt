@@ -62,11 +62,22 @@ POLYMORPHISM:  code can work with values of different shapes, as long as they su
 When a piece of code is written to work with objects that have a certain interface
 —in this case, a toString method—any kind of object that happens to support this interface can be plugged into the code, and it will just work.
 
+Property names can also be Symbols
+SYMBOLS:are values created with the Symbol function, unique—you cannot create the same symbol twice.
+multiple symbols may have the same name. //? expand
+It is possible to include symbol properties in object expressions and classes
+  by using square brackets around the property name.
+//ex const toStringSymbol = Symbol("toString"); //  [toStringSymbol]
 
+The object given to a for/of loop is expected to be iterable.
 
-
-
-
+CONSTRUCTOR  function takes values that will be used to fill in the initial values.
+GETTER not necessary for  an object to compute and store a property directly in the instance.
+  Even properties that are accessed directly may hide a method call.
+  Such methods are called getters,
+  and they are defined by writing get in front of the method name in an object expression or class declaration.
+SETTER  You can do a similar thing to getter when a property is written to, using a setter.
+STATIC  Inside a class declaration, methods that have static written before their name are stored on the constructor.
 
 
 
